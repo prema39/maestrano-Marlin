@@ -103,5 +103,6 @@ public class BaseTest {
 //			driver.quit();
 		}
 		System.out.println("*******************************************");
+		System.out.println("*******************************************");
 	}
 }
