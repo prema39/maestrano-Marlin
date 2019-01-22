@@ -1,5 +1,7 @@
 package io.maestrano.marlin.test;
 
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.Hashtable;
 
 import org.openqa.selenium.support.PageFactory;
@@ -10,6 +12,7 @@ import org.testng.annotations.Test;
 
 import io.maestrano.marlin.pages.ExecutiveDashboardPage;
 import io.maestrano.marlin.pages.LoginPage;
+import io.maestrano.marlin.screenrecord.MyScreenRecorder;
 import io.maestrano.marlin.test.base.BaseTest;
 import io.maestrano.marlin.utils.Constants;
 import io.maestrano.marlin.utils.DataUtil;
@@ -18,7 +21,8 @@ public class AddModuleTest extends BaseTest {
 	String testName = "AddModuleTest";
 
 	@Test(dataProvider = "getData")
-	public void doLogin(Hashtable<String, String> data) throws InterruptedException {
+	public void doLogin(Hashtable<String, String> data) throws Exception {
+		
 
 		test = extent.createTest(testName);
 		
@@ -34,18 +38,22 @@ public class AddModuleTest extends BaseTest {
 		PageFactory.initElements(driver, loginPage);
 		boolean actualResult = loginPage.doLogin(data.get("username"), data.get("password"));
 		if (!actualResult) {
-			Assert.fail("Login Failed");
+			AssertJUnit.fail("Login Failed");
 		}
-		
+		                              
 		ExecutiveDashboardPage exedashPage = new ExecutiveDashboardPage(driver);
 		PageFactory.initElements(driver, exedashPage);
 		
 		
 		
 		exedashPage.addDashboard(data.get("DashboardName"));
-		Thread.sleep(1000);
+		Thread.sleep(2000);
 		exedashPage.addModulesDashboard();
+	    Thread.sleep(2000);                                                                    
 		exedashPage.addSelectDashboard(data.get("ModuleName"),data.get("KPIName"),data.get("TimePeriod"));
+		Thread.sleep(2000);
+		exedashPage.signOut();
+
 
 	}
 

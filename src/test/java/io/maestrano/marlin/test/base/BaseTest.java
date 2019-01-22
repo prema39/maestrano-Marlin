@@ -11,13 +11,14 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.Status;
+
 
 import io.maestrano.marlin.utils.Constants;
 import io.maestrano.marlin.utils.ExtentManager;
@@ -29,7 +30,7 @@ public class BaseTest {
 	protected WebDriver driver;
 	protected ExtentReports extent = ExtentManager.getInstance();
 	protected ExtentTest test;
-
+	
 	public void openBrowser(String browserType) {
 		test.info("Opening browser: " + browserType);
 		switch (browserType) {
@@ -44,6 +45,7 @@ public class BaseTest {
 		default:
 			System.out.println("please enter any browsername" + browserType);
 		}
+		
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 	}
@@ -53,6 +55,10 @@ public class BaseTest {
 		driver.get(urlKey);
 	}
 
+	
+	
+	
+			
 	/****************** Reporting ***************/
 
 	public void reportFailure(String failureMessage) {
@@ -99,10 +105,10 @@ public class BaseTest {
 		extent.flush();
 
 		if (driver != null) {
+			driver.close();
 
-//			driver.quit();
+		driver.quit();
 		}
-		System.out.println("*******************************************");
-		System.out.println("*******************************************");
+		
 	}
 }

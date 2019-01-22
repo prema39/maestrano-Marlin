@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import io.maestrano.marlin.pages.ExecutiveDashboardPage;
 import io.maestrano.marlin.pages.LoginPage;
 import io.maestrano.marlin.pages.MarketplacePage;
+import io.maestrano.marlin.screenrecord.MyScreenRecorder;
 import io.maestrano.marlin.test.base.BaseTest;
 import io.maestrano.marlin.utils.Constants;
 import io.maestrano.marlin.utils.DataUtil;
@@ -21,7 +22,8 @@ public class MarketplaceTest extends BaseTest {
 	
 
 	@Test(dataProvider = "getData")
-	public void doLogin(Hashtable<String, String> data) throws InterruptedException {
+	public void doLogin(Hashtable<String, String> data) throws Exception {
+		
 		test = extent.createTest(testName);
 		if (DataUtil.isTestExecutable(xls, testName) || data.get("Runmode").equals("N")) {
 			throw new SkipException("runmode is set N");
@@ -52,6 +54,8 @@ public class MarketplaceTest extends BaseTest {
 		//check dashboard
 		PageFactory.initElements(driver, exedashPage);
 		System.out.println(driver.findElements(By.xpath(Constants.DASHBOARD_NAV_XPATH)).size());
+		
+		
 	}
 
 	@DataProvider

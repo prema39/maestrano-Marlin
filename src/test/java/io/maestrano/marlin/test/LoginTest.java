@@ -9,16 +9,19 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import io.maestrano.marlin.pages.LoginPage;
+import io.maestrano.marlin.screenrecord.MyScreenRecorder;
 import io.maestrano.marlin.test.base.BaseTest;
 import io.maestrano.marlin.utils.Constants;
 import io.maestrano.marlin.utils.DataUtil;
 
 public class LoginTest extends BaseTest {
+	
 	String testName = "LoginTest";
 
 	@Test(dataProvider = "getData")
-	public void doLogin(Hashtable<String, String> data) {
-
+	public void doLogin(Hashtable<String, String> data) throws Exception {
+		
+		
 		test = extent.createTest(testName);
 
 		if (DataUtil.isTestExecutable(xls, testName) || data.get("Runmode").equals("N")) {
@@ -36,7 +39,8 @@ public class LoginTest extends BaseTest {
 		
 		//TODO: fix this true and false
 		Assert.assertTrue(actualResult);
-
+		
+		
 	}
 
 	@DataProvider

@@ -64,6 +64,8 @@ public class ExecutiveDashboardPage extends BasePage {
 	@FindBy(name = Constants.KPITIMEPERIOD_NAME)
 	private WebElement kpiTimePeriod;
 	
+	@FindBy(name = Constants.SIGNOUT_XPATH)
+	private WebElement signout;
 	
 	// click on marketplace button
 	public void gotoMarketplace() {
@@ -85,7 +87,7 @@ public class ExecutiveDashboardPage extends BasePage {
 
 	}
 
-	public void addSelectDashboard(String ModuleName,String KPIName, String timePeriod) {
+	public void addSelectDashboard(String ModuleName,String KPIName, String timePeriod) throws InterruptedException {
 
 		for (WebElement webElement : selectModules) {
 			
@@ -100,6 +102,7 @@ public class ExecutiveDashboardPage extends BasePage {
 		hideModules.click();
 		
 		addKpi.click();
+		Thread.sleep(3000);
 		
 		for (WebElement webElement : allKpi) {
 			System.out.println(webElement.getText());
@@ -107,13 +110,16 @@ public class ExecutiveDashboardPage extends BasePage {
 				webElement.click();
 				
 				kpiTimePeriod.sendKeys(timePeriod);
-				
+				Thread.sleep(2000);
 				doneKPI.click();
 				break;
 			}
 		}
 		
 		saveModules.click();
+	}
+	public void signOut() {
+		signout.click();
 	}
 
 }

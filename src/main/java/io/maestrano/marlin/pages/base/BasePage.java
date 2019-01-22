@@ -1,6 +1,7 @@
 package io.maestrano.marlin.pages.base;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
@@ -25,13 +26,13 @@ public class BasePage {
 		
 	}
 	
-	public void explicit_id(String locator,int timeout) {
+	/*public void explicit_id(String locator,int timeout) {
 		
 		WebDriverWait wait =new WebDriverWait(driver, timeout);
 		
 			wait.until(ExpectedConditions.elementToBeClickable(By.id(locator)));
 		
-	}
+	}*/
 	public void explicit_xpath(String locator,int timeout) {
 		
 		WebDriverWait wait =new WebDriverWait(driver, timeout);
@@ -39,5 +40,7 @@ public class BasePage {
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
 		
 	}
+	
+	
 	
 }

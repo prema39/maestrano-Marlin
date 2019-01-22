@@ -4,6 +4,9 @@
   <test thread-count="5" name="Test">
     <classes>
       <class name="io.maestrano.marlin.test.LoginTest"/>
+       <class name="io.maestrano.marlin.test.MarketplaceTest"/>
+        <class name="io.maestrano.marlin.test.AddModuleTest"/>
+        <class name="io.maestrano.marlin.test.NewUserRedirectionTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

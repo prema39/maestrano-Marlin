@@ -1,5 +1,8 @@
 package io.maestrano.marlin.pages;
 
+import java.util.ArrayList;
+import java.util.Set;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,8 +29,12 @@ public class QuickBooksLoginPage extends BasePage{
 	//click on marketplace button
 	public void loginToQuickbooks(String user, String pass) {
 		
-		explicit_id(Constants.QUICKBOOKSUSERNAME_ID, 30);
+		//explicit_id(Constants.QUICKBOOKSUSERNAME_ID, 50);
 		
+		//Set<String> windows = driver.getWindowHandles();
+
+		//String secondWindow = new ArrayList<>(windows).;
+		//driver.switchTo().window(secondWindow);
 		username.sendKeys(user);
 		password.sendKeys(pass);
 		

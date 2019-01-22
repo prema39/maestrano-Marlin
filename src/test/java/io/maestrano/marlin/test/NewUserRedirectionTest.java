@@ -46,7 +46,7 @@ public class NewUserRedirectionTest extends BaseTest {
 
 		marketplacePage.clickProceedbtn();
 		
-		Thread.sleep(5000);
+		Thread.sleep(3000);
 		QuickBooksLoginPage quickbooksSigninPage = new QuickBooksLoginPage(driver);
 		PageFactory.initElements(driver, quickbooksSigninPage);
 		quickbooksSigninPage.loginToQuickbooks("prema.eddyam+5@maestrano.com", "Password1!");

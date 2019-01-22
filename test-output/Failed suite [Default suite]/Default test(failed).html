@@ -57,9 +57,9 @@ function toggleAllBoxes() {
 <tr>
 <td>Tests passed/Failed/Skipped:</td><td>0/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Dec 17 11:48:50 GMT 2018</td>
+<td>Started on:</td><td>Mon Jan 07 12:16:11 GMT 2019</td>
 </tr>
-<tr><td>Total time:</td><td>165 seconds (165645 ms)</td>
+<tr><td>Total time:</td><td>0 seconds (153 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -68,6 +68,52 @@ function toggleAllBoxes() {
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
 <table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED CONFIGURATIONS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='io.maestrano.marlin.test.AddModuleTest.quit()'><b>quit</b><br>Test class: io.maestrano.marlin.test.AddModuleTest<br>Parameters: [TestResult name=doLogin status=FAILURE method=AddModuleTest.doLogin(java.util.Hashtable)[pri:0, instance:io.maestrano.marlin.test.AddModuleTest@5c08c46a] output={null}]</td>
+<td><div><pre>java.lang.NullPointerException
+	at io.maestrano.marlin.test.base.BaseTest.reportFailure(BaseTest.java:59)
+	at io.maestrano.marlin.test.base.BaseTest.quit(BaseTest.java:90)
+... Removed 26 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace735228558", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace735228558'><pre>java.lang.NullPointerException
+	at io.maestrano.marlin.test.base.BaseTest.reportFailure(BaseTest.java:59)
+	at io.maestrano.marlin.test.base.BaseTest.quit(BaseTest.java:90)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:85)
+	at org.testng.internal.Invoker.invokeConfigurationMethod(Invoker.java:510)
+	at org.testng.internal.Invoker.invokeConfigurations(Invoker.java:211)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:708)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:821)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1131)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:124)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:108)
+	at org.testng.TestRunner.privateRun(TestRunner.java:773)
+	at org.testng.TestRunner.run(TestRunner.java:623)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:357)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:352)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:310)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:259)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1185)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1110)
+	at org.testng.TestNG.run(TestNG.java:1018)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>io.maestrano.marlin.test.AddModuleTest@5c08c46a</td></tr>
+</table><p>
+<table width='100%' border='1' class='invocation-failed'>
 <tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
 <td width="30%"><b>Exception</b></td>
@@ -75,13 +121,16 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='io.maestrano.marlin.test.MarketplaceTest.doLogin()'><b>doLogin</b><br>Test class: io.maestrano.marlin.test.MarketplaceTest<br>Parameters: {password=Password1!, Runmode=Y, username=prema.eddyam+32@maestrano.com}</td>
-<td><div><pre>java.lang.AssertionError: Login Failed
-	at io.maestrano.marlin.test.MarketplaceTest.doLogin(MarketplaceTest.java:36)
-... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace624079697", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace624079697'><pre>java.lang.AssertionError: Login Failed
-	at org.testng.Assert.fail(Assert.java:94)
-	at io.maestrano.marlin.test.MarketplaceTest.doLogin(MarketplaceTest.java:36)
+<td title='io.maestrano.marlin.test.AddModuleTest.doLogin()'><b>doLogin</b><br>Test class: io.maestrano.marlin.test.AddModuleTest<br>Parameters: {KPIName=Avg length of outstanding receivables, password=Password1!, Runmode=Y, TimePeriod=Past 90 days, ModuleName=Aged payables and receivables, DashboardName=qwerty, username=prema.eddyam+44@maestrano.com}</td>
+<td><div><pre>java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token &quot;000&quot;, delete this token
+
+	at io.maestrano.marlin.test.AddModuleTest.doLogin(AddModuleTest.java:48)
+... Removed 24 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1621254922", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1621254922'><pre>java.lang.Error: Unresolved compilation problem: 
+	Syntax error on token &quot;000&quot;, delete this token
+
+	at io.maestrano.marlin.test.AddModuleTest.doLogin(AddModuleTest.java:48)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -107,8 +156,8 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
-<td>164</td>
-<td>io.maestrano.marlin.test.MarketplaceTest@8c11eee</td></tr>
+<td>0</td>
+<td>io.maestrano.marlin.test.AddModuleTest@5c08c46a</td></tr>
 </table><p>
 </body>
 </html>
