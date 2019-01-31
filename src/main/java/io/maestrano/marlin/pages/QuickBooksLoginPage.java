@@ -29,7 +29,7 @@ public class QuickBooksLoginPage extends BasePage{
 	//click on marketplace button
 	public void loginToQuickbooks(String user, String pass) {
 		
-		//explicit_id(Constants.QUICKBOOKSUSERNAME_ID, 50);
+		explicit_id(Constants.QUICKBOOKSUSERNAME_ID, 50);
 		
 		//Set<String> windows = driver.getWindowHandles();
 

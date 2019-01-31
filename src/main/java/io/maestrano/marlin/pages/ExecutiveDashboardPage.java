@@ -2,13 +2,12 @@ package io.maestrano.marlin.pages;
 
 import java.util.List;
 
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
-import org.openqa.selenium.support.ui.Select;
 
 import io.maestrano.marlin.pages.base.BasePage;
 import io.maestrano.marlin.utils.Constants;
@@ -37,11 +36,13 @@ public class ExecutiveDashboardPage extends BasePage {
 
 	@FindBy(xpath = Constants.GETSTARTEDDASHBOARD_XPATH)
 	private WebElement getStartedDashboard;
+
 	@FindBy(xpath = Constants.ADDMODULESDASHBOARD_XPATH)
 	private WebElement addModules;
 
 	@FindAll(@FindBy(how = How.XPATH, using = Constants.SELECTMODULES_XPATH))
 	private List<WebElement> selectModules;
+
 	@FindBy(xpath = Constants.ADDSELECTEDMODULES_XPATH)
 	private WebElement addSelectedModules;
 
@@ -53,20 +54,65 @@ public class ExecutiveDashboardPage extends BasePage {
 
 	@FindAll(@FindBy(how = How.XPATH, using = Constants.ALLKPI_XPATH))
 	private List<WebElement> allKpi;
-	
+
 	@FindBy(xpath = Constants.DONEKPI_XPATH)
 	private WebElement doneKPI;
-	
+
 	@FindBy(xpath = Constants.SAVE_XPATH)
 	private WebElement saveModules;
-	
-	
+
 	@FindBy(name = Constants.KPITIMEPERIOD_NAME)
 	private WebElement kpiTimePeriod;
-	
-	@FindBy(name = Constants.SIGNOUT_XPATH)
-	private WebElement signout;
-	
+
+	@FindBy(xpath = Constants.SETTINGSICON_XPATH)
+	private WebElement settingsIcon;
+
+	@FindBy(xpath = Constants.DASHBOARDOPTIONS_XPATH)
+	private WebElement dashboartOptions;
+
+	@FindBy(xpath = Constants.DELETEDASHBOARD_XPATH)
+	private WebElement deleteDashboard;
+
+	@FindBy(xpath = Constants.HIDEBUSINESSMETRIC_XPATH)
+	private WebElement hidebusinessmetric;
+
+	@FindBy(xpath = Constants.SIGNOUT_XPATH)
+	private WebElement signOut;
+
+	@FindBy(xpath = Constants.CASHONHANDVALUE_XPATH)
+	private WebElement cashValue;
+
+	public void compareCashValue(String Cash) {
+
+		System.out.println(cashValue.getText());
+
+		// System.out.println(Cash);
+
+		if (cashValue.getText().equals(Cash)) {
+
+			System.out.println(true);
+
+		}
+	}
+
+	public void deleteDashboard() {
+
+		Actions act = new Actions(driver);
+		act.moveToElement(dashboartOptions);
+		act.moveToElement(deleteDashboard);
+		act.click(deleteDashboard).build().perform();
+
+	}
+
+	public void hideBusinessMetric() {
+
+		Actions act = new Actions(driver);
+		act.moveToElement(dashboartOptions);
+		act.moveToElement(hidebusinessmetric);
+		act.click(hidebusinessmetric).build().perform();
+
+	}
+
 	// click on marketplace button
 	public void gotoMarketplace() {
 		marketplaceLink.click();
@@ -87,10 +133,15 @@ public class ExecutiveDashboardPage extends BasePage {
 
 	}
 
-	public void addSelectDashboard(String ModuleName,String KPIName, String timePeriod) throws InterruptedException {
+	public void goToSettings() {
+
+		explicit_xpath(Constants.SETTINGSICON_XPATH, 15);
+		settingsIcon.click();
+	}
+
+	public void addSelectDashboard(String ModuleName, String KPIName, String timePeriod) throws InterruptedException {
 
 		for (WebElement webElement : selectModules) {
-			
 
 			if (webElement.getText().equals(ModuleName)) {
 				webElement.click();
@@ -100,26 +151,28 @@ public class ExecutiveDashboardPage extends BasePage {
 
 		}
 		hideModules.click();
-		
+
 		addKpi.click();
 		Thread.sleep(3000);
-		
+
 		for (WebElement webElement : allKpi) {
 			System.out.println(webElement.getText());
 			if (webElement.getText().contains(KPIName)) {
+				Thread.sleep(3000);
 				webElement.click();
-				
+
 				kpiTimePeriod.sendKeys(timePeriod);
 				Thread.sleep(2000);
 				doneKPI.click();
 				break;
 			}
 		}
-		
+
 		saveModules.click();
 	}
+
 	public void signOut() {
-		signout.click();
+		signOut.click();
 	}
 
 }

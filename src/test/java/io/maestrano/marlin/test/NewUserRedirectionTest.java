@@ -1,5 +1,9 @@
 package io.maestrano.marlin.test;
 
+import org.testng.annotations.Test;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.util.Hashtable;
 
 import org.openqa.selenium.support.PageFactory;
@@ -49,7 +53,7 @@ public class NewUserRedirectionTest extends BaseTest {
 		Thread.sleep(3000);
 		QuickBooksLoginPage quickbooksSigninPage = new QuickBooksLoginPage(driver);
 		PageFactory.initElements(driver, quickbooksSigninPage);
-		quickbooksSigninPage.loginToQuickbooks("prema.eddyam+5@maestrano.com", "Password1!");
+		quickbooksSigninPage.loginToQuickbooks("prema.eddyam+auto+newuser@maestrano.com", "Password1!");
 		
 		
 		

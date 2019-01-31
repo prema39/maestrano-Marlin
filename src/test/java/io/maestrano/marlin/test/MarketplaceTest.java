@@ -1,5 +1,8 @@
 package io.maestrano.marlin.test;
 
+
+
+
 import java.util.Hashtable;
 
 import org.openqa.selenium.By;
@@ -12,7 +15,7 @@ import org.testng.annotations.Test;
 import io.maestrano.marlin.pages.ExecutiveDashboardPage;
 import io.maestrano.marlin.pages.LoginPage;
 import io.maestrano.marlin.pages.MarketplacePage;
-import io.maestrano.marlin.screenrecord.MyScreenRecorder;
+
 import io.maestrano.marlin.test.base.BaseTest;
 import io.maestrano.marlin.utils.Constants;
 import io.maestrano.marlin.utils.DataUtil;
@@ -54,7 +57,6 @@ public class MarketplaceTest extends BaseTest {
 		//check dashboard
 		PageFactory.initElements(driver, exedashPage);
 		System.out.println(driver.findElements(By.xpath(Constants.DASHBOARD_NAV_XPATH)).size());
-		
 		
 	}
 

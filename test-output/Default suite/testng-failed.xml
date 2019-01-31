@@ -3,12 +3,12 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="io.maestrano.marlin.test.SettingsTest">
+      <class name="io.maestrano.marlin.test.AddModuleTest">
         <methods>
-          <include name="doLogin" invocation-numbers="0"/>
           <include name="quit"/>
+          <include name="doLogin" invocation-numbers="0"/>
         </methods>
-      </class> <!-- io.maestrano.marlin.test.SettingsTest -->
+      </class> <!-- io.maestrano.marlin.test.AddModuleTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

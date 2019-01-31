@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -14,11 +15,11 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.MediaEntityBuilder;
-
 
 import io.maestrano.marlin.utils.Constants;
 import io.maestrano.marlin.utils.ExtentManager;
@@ -30,7 +31,7 @@ public class BaseTest {
 	protected WebDriver driver;
 	protected ExtentReports extent = ExtentManager.getInstance();
 	protected ExtentTest test;
-	
+
 	public void openBrowser(String browserType) {
 		test.info("Opening browser: " + browserType);
 		switch (browserType) {
@@ -45,7 +46,7 @@ public class BaseTest {
 		default:
 			System.out.println("please enter any browsername" + browserType);
 		}
-		
+
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 
 	}
@@ -55,10 +56,56 @@ public class BaseTest {
 		driver.get(urlKey);
 	}
 
+	public boolean isElementPresent(String locator) {
+
+		int element = driver.findElements(By.xpath(locator)).size();
+
+		if (element > 0) {
+			return true;
+		} else {
+			return false;
+		}
+
+	}
+
+	//**************************
+	
+	public String getProperty(String property, String... macros) {
+
+		// TODO: Change code below to ensure that 'missing from properties' is
+		// clearly differentiated from 'not found on page'.
+
+		// swap out any macros
+		if (macros != null && macros.length >= 0) {
+			for (int i = 0; i < macros.length; i++) {
+				property = property.replaceFirst("\\$\\{[A-Za-z][A-Za-z]*\\}",
+						macros[i]);
+
+			}
+			property = property.replaceAll("'(?<=\\p{L})'", "\\\\\"");
+			property = property.replaceAll("(\\[@\\w+=)'(.*?)']", "$1\"$2\"]");
+		}
+		return property;
+	}
+
+	/*public String getPropertyApos(String property, String... macros) {
+		// TODO: Change code below to ensure that 'missing from properties' is
+		// clearly differentiated from 'not found on page'.
+		// swap out any macros
+		if (macros != null && macros.length >= 0) {
+			for (int i = 0; i < macros.length; i++) {
+				property = property.replaceFirst("\\$\\{[A-Za-z][A-Za-z]*\\}",
+						macros[i]);
+			}
+		}
+
+		return property;*/
 	
 	
 	
-			
+	
+	
+	
 	/****************** Reporting ***************/
 
 	public void reportFailure(String failureMessage) {
@@ -105,10 +152,11 @@ public class BaseTest {
 		extent.flush();
 
 		if (driver != null) {
-			driver.close();
-
-		driver.quit();
+			// driver.close();
+			System.out.println();
+//			 driver.quit();
+	
 		}
-		
+
 	}
 }

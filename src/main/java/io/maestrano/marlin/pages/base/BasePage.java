@@ -11,36 +11,33 @@ import io.maestrano.marlin.utils.Constants;
 
 public class BasePage {
 	protected WebDriver driver;
-	
-	
-	
+
 	public boolean isElementPresent(String locator) {
-		
+
 		int element = driver.findElements(By.xpath(locator)).size();
-		
+
 		if (element > 0) {
 			return true;
 		} else {
 			return false;
 		}
-		
+
 	}
-	
-	/*public void explicit_id(String locator,int timeout) {
-		
-		WebDriverWait wait =new WebDriverWait(driver, timeout);
-		
-			wait.until(ExpectedConditions.elementToBeClickable(By.id(locator)));
-		
-	}*/
-	public void explicit_xpath(String locator,int timeout) {
-		
-		WebDriverWait wait =new WebDriverWait(driver, timeout);
-		
-			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
-		
+
+	public void explicit_id(String locator, int timeout) {
+
+		WebDriverWait wait = new WebDriverWait(driver, timeout);
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.id(locator)));
+
 	}
-	
-	
-	
+
+	public void explicit_xpath(String locator, int timeout) {
+
+		WebDriverWait wait = new WebDriverWait(driver, timeout);
+
+		wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locator)));
+
+	}
+
 }

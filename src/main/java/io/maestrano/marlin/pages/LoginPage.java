@@ -7,10 +7,10 @@ import org.openqa.selenium.support.FindBy;
 import io.maestrano.marlin.pages.base.BasePage;
 import io.maestrano.marlin.utils.Constants;
 
-public class LoginPage extends BasePage{
+public class LoginPage extends BasePage {
 
 	public LoginPage(WebDriver baseTestDriver) {
-		
+
 		driver = baseTestDriver;
 	}
 
@@ -27,12 +27,11 @@ public class LoginPage extends BasePage{
 		emailEle.sendKeys(uName);
 		passEle.sendKeys(pWord);
 		loginBtn.click();
-		
+
 		boolean elementPrt = isElementPresent(Constants.SIGNOUT_XPATH);
-		
+
 		return elementPrt;
-		
-		
+
 	}
 
 }
