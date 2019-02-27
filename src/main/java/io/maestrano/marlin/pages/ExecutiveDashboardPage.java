@@ -2,6 +2,8 @@ package io.maestrano.marlin.pages;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -76,11 +78,51 @@ public class ExecutiveDashboardPage extends BasePage {
 	@FindBy(xpath = Constants.HIDEBUSINESSMETRIC_XPATH)
 	private WebElement hidebusinessmetric;
 
+	@FindBy(xpath = Constants.EDITDASHBOARD_XPATH)
+	private WebElement editdashboard;
+
+	@FindBy(xpath = Constants.SELECTEDKPI_XPATH)
+	private WebElement kpitodelete;
+
 	@FindBy(xpath = Constants.SIGNOUT_XPATH)
 	private WebElement signOut;
 
 	@FindBy(xpath = Constants.CASHONHANDVALUE_XPATH)
 	private WebElement cashValue;
+
+	@FindBy(xpath = Constants.ALLDASHBOARDS_XPATH)
+	private WebElement alldashboards;
+
+	public void displayAllDashboards() {
+
+		List<WebElement> dashboardCount = driver.findElements(By.xpath("//a[contains(@data-pt-name,'dashboardnav')]"));
+		System.out.println(dashboardCount.size());
+
+		for (WebElement dashboardname : dashboardCount) {
+
+			System.out.println(dashboardname.getText());
+
+			/*
+			 * if (!dashboardname.equals("Invoices")) { //Thread.sleep(3000);
+			 * dashboardname.click(); }
+			 */
+		}
+
+	}
+
+	public void displayAllKPIs() {
+
+		List<WebElement> allKPIs = driver.findElements(By.xpath("//div[contains(@class,'kpi-item d-flex ')]"));
+
+		System.out.println(allKPIs.size());
+
+		for (WebElement dashboardname : allKPIs) {
+
+			System.out.println(dashboardname.getText());
+
+		}
+
+	}
 
 	public void compareCashValue(String Cash) {
 
@@ -101,6 +143,17 @@ public class ExecutiveDashboardPage extends BasePage {
 		act.moveToElement(dashboartOptions);
 		act.moveToElement(deleteDashboard);
 		act.click(deleteDashboard).build().perform();
+
+	}
+
+	public void deleteKPI() throws InterruptedException {
+
+		Actions act = new Actions(driver);
+		act.moveToElement(dashboartOptions);
+		act.moveToElement(editdashboard);
+		act.click(editdashboard).build().perform();
+		Thread.sleep(3000);
+		kpitodelete.click();
 
 	}
 
@@ -139,7 +192,7 @@ public class ExecutiveDashboardPage extends BasePage {
 		settingsIcon.click();
 	}
 
-	public void addSelectDashboard(String ModuleName, String KPIName, String timePeriod) throws InterruptedException {
+	public void addtoSelectDashboard(String ModuleName, String KPIName, String timePeriod) throws InterruptedException {
 
 		for (WebElement webElement : selectModules) {
 

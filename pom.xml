@@ -29,10 +29,8 @@
 			<artifactId>extentreports</artifactId>
 			<version>4.0.6</version>
 		</dependency>
-
 		<dependency>
-
-			<groupId>org.apache.poi</groupId>
+<groupId>org.apache.poi</groupId>
 
 			<artifactId>poi</artifactId>
 

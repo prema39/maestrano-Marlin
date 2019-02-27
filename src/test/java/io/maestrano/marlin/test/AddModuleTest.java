@@ -20,7 +20,6 @@ public class AddModuleTest extends BaseTest {
 	@Test(dataProvider = "getData")
 	public void doLogin(Hashtable<String, String> data) throws Exception {
 		
-
 		test = extent.createTest(testName);
 		
 		
@@ -45,9 +44,9 @@ public class AddModuleTest extends BaseTest {
 		
 		exedashPage.addDashboard(data.get("DashboardName"));
 		Thread.sleep(2000);
-		exedashPage.addModulesDashboard();
-	    Thread.sleep(2000);                                                                    
-		exedashPage.addSelectDashboard(data.get("ModuleName"),data.get("KPIName"),data.get("TimePeriod"));
+	   exedashPage.addModulesDashboard();
+	    Thread.sleep(2000);                                                                 
+	    exedashPage.addtoSelectDashboard(data.get("ModuleName"),data.get("KPIName"),data.get("TimePeriod"));
 		 
 
 	}

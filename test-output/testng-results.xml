@@ -2,34 +2,34 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="14396" started-at="2019-01-31T16:21:29Z" finished-at="2019-01-31T16:21:43Z">
+  <suite name="Suite" duration-ms="21946" started-at="2019-02-25T16:53:52Z" finished-at="2019-02-25T16:54:14Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="14396" started-at="2019-01-31T16:21:29Z" finished-at="2019-01-31T16:21:43Z">
-      <class name="io.maestrano.marlin.test.CashOnHandValueTest">
-        <test-method status="PASS" signature="doLogin(java.util.Hashtable)[pri:0, instance:io.maestrano.marlin.test.CashOnHandValueTest@3cc1435c]" name="doLogin" duration-ms="14020" started-at="2019-01-31T16:21:29Z" data-provider="getData" finished-at="2019-01-31T16:21:43Z">
+    <test name="Default test" duration-ms="21946" started-at="2019-02-25T16:53:52Z" finished-at="2019-02-25T16:54:14Z">
+      <class name="io.maestrano.marlin.test.DeleteKPITest">
+        <test-method status="PASS" signature="doLogin(java.util.Hashtable)[pri:0, instance:io.maestrano.marlin.test.DeleteKPITest@71c3b41]" name="doLogin" duration-ms="21213" started-at="2019-02-25T16:53:52Z" data-provider="getData" finished-at="2019-02-25T16:54:14Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{CashValue=$136,988, password=Password1!, Runmode=Y, username=prema.eddyam+auto1@maestrano.com}]]>
+                <![CDATA[{password=Password1!, Runmode=Y, username=prema.eddyam+auto1@maestrano.com}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- doLogin -->
-        <test-method status="PASS" signature="quit(org.testng.ITestResult)[pri:0, instance:io.maestrano.marlin.test.CashOnHandValueTest@3cc1435c]" name="quit" is-config="true" duration-ms="310" started-at="2019-01-31T16:21:43Z" finished-at="2019-01-31T16:21:43Z">
+        <test-method status="PASS" signature="quit(org.testng.ITestResult)[pri:0, instance:io.maestrano.marlin.test.DeleteKPITest@71c3b41]" name="quit" is-config="true" duration-ms="653" started-at="2019-02-25T16:54:14Z" finished-at="2019-02-25T16:54:14Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=doLogin status=SUCCESS method=CashOnHandValueTest.doLogin(java.util.Hashtable)[pri:0, instance:io.maestrano.marlin.test.CashOnHandValueTest@3cc1435c] output={null}]]]>
+                <![CDATA[[TestResult name=doLogin status=SUCCESS method=DeleteKPITest.doLogin(java.util.Hashtable)[pri:0, instance:io.maestrano.marlin.test.DeleteKPITest@71c3b41] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- quit -->
-      </class> <!-- io.maestrano.marlin.test.CashOnHandValueTest -->
+      </class> <!-- io.maestrano.marlin.test.DeleteKPITest -->
     </test> <!-- Default test -->
   </suite> <!-- Suite -->
 </testng-results>
